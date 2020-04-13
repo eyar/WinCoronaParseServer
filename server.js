@@ -11,7 +11,7 @@ const parseServer = new ParseServer({
   restAPIKey: '123456',
   serverURL: process.env.SERVER_URL,
   publicServerURL: process.env.SERVER_URL,
-  cloud: "./cloud/main.js",
+  cloud: __dirname + '/cloud/main.js',
   allowClientClassCreation: false
 });
 
