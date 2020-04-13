@@ -1,4 +1,4 @@
-Parse.serverURL = 'http://localhost:1337/parse';
+Parse.serverURL = process.env.SERVER_URL;
 require('./_User');
 require('./answers');
 require(__dirname + '/questionnaire');
