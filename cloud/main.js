@@ -1,7 +1,7 @@
 Parse.serverURL = 'http://localhost:1337/parse';
 require('./_User');
 require('./answers');
-require('./questionnaire');
+require(__dirname + '/questionnaire');
 
 Parse.Cloud.define('abc', async req=>{
     var Question = Parse.Object.extend("Question");
