@@ -1,5 +1,6 @@
 const express = require('express');
 const { default: ParseServer, ParseGraphQLServer } = require('parse-server');
+require('dotenv').config(); 
 
 const app = express();
 
@@ -8,8 +9,8 @@ const parseServer = new ParseServer({
   appId: '123456',
   masterKey: '123456',
   restAPIKey: '123456',
-  serverURL: 'http://localhost:1337/parse',
-  publicServerURL: 'http://localhost:1337/parse',
+  serverURL: process.env.SERVER_URL,
+  publicServerURL: process.env.SERVER_URL,
   cloud: "./cloud/main.js",
   allowClientClassCreation: false
 });
