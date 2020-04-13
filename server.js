@@ -1,6 +1,7 @@
 const express = require('express');
 const { default: ParseServer, ParseGraphQLServer } = require('parse-server');
 require('dotenv').config(); 
+var http = require('http');
 
 const app = express();
 
@@ -28,8 +29,16 @@ parseGraphQLServer.applyGraphQL(app); // Mounts the GraphQL API
 parseGraphQLServer.applyPlayground(app); // (Optional) Mounts the GraphQL Playground - do NOT use in Production
 
 var port = process.env.PORT || 1337;
-app.listen(port, function() {
-  console.log('REST API running on http://localhost:1337/parse');
-  console.log('GraphQL API running on http://localhost:1337/graphql');
-  console.log('GraphQL Playground running on http://localhost:1337/playground');
+// app.listen(port, function() {
+//   console.log('REST API running on http://localhost:1337/parse');
+//   console.log('GraphQL API running on http://localhost:1337/graphql');
+//   console.log('GraphQL Playground running on http://localhost:1337/playground');
+// });
+
+var httpServer = require('http').createServer(app);
+httpServer.listen(port, function() {
+    console.log('parse-server-example running on port ' + port + '.');
 });
+
+// This will enable the Live Query real-time server
+ParseServer.createLiveQueryServer(httpServer);
