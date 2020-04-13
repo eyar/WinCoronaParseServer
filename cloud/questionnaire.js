@@ -1,4 +1,4 @@
-['one_time', 'daily'].forEach(type=>{
+['one_time_heb', 'daily'].forEach(type=>{
     Parse.Cloud.define(type, async req=>{
         const query = new Parse.Query("Question");
         query.equalTo("questionnaireType", type);

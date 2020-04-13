@@ -29,11 +29,6 @@ parseGraphQLServer.applyGraphQL(app); // Mounts the GraphQL API
 parseGraphQLServer.applyPlayground(app); // (Optional) Mounts the GraphQL Playground - do NOT use in Production
 
 var port = process.env.PORT || 1337;
-// app.listen(port, function() {
-//   console.log('REST API running on http://localhost:1337/parse');
-//   console.log('GraphQL API running on http://localhost:1337/graphql');
-//   console.log('GraphQL Playground running on http://localhost:1337/playground');
-// });
 
 var httpServer = require('http').createServer(app);
 httpServer.listen(port, function() {
